@@ -136,7 +136,6 @@
                                     android:layout_gravity="right"
                                     android:padding="@dimen/album_title_padding"/>
 
-
                             </LinearLayout>
 
                         </LinearLayout>

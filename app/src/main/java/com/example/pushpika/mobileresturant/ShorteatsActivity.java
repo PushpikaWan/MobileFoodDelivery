@@ -19,37 +19,37 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
+public class ShorteatsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private AlbumsAdapter adapter;
-    private List<Album> albumList;
-    public static List<HorizontalAlbum> orderList = new ArrayList<HorizontalAlbum>();
+    private DesertHorizontalAlbumsAdapter adapter;
+    private List<HorizontalAlbum> albumList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_shorteats);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initCollapsingToolbar();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new AlbumsAdapter(this, albumList);
+        adapter = new DesertHorizontalAlbumsAdapter(this, albumList);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.addItemDecoration(new ShorteatsActivity.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
         prepareAlbums();
 
         try {
-            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+            Glide.with(this).load(R.drawable.shorteats_category).into((ImageView) findViewById(R.id.backdrop));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
+                    collapsingToolbar.setTitle(getString(R.string.shorteats));
                     isShow = true;
                 } else if (isShow) {
                     collapsingToolbar.setTitle(" ");
@@ -92,34 +92,43 @@ public class MainActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
         int[] covers = new int[]{
-                R.drawable.breakfast_category,
-                R.drawable.lunch_category,
-                R.drawable.shorteats_category,
-                R.drawable.drinks_category,
-                R.drawable.desert_category,
-                R.drawable.fruits_category,
-                R.drawable.fruit_juice_category,
-               };
+                R.drawable.shorteats_fish_bun,
+                R.drawable.shorteats_seenisambol,
+                R.drawable.shorteats_egg_bun,
+                R.drawable.shorteats_fish_rolls,
+                R.drawable.shorteats_pasties,
+                R.drawable.shorteats_pastry,
+                R.drawable.shorteats_cupcakes};
 
-        Album a = new Album("Breakfast", covers[0]);
+        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
+        for (int i = 0; i < MainActivity.orderList.size(); i++) {
+            if(MainActivity.orderList.get(i).getName().equals("Fish Bun")) { va1 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Seeni Sambol Bun")) { va2 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Egg Bun")) { va3 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Fish Rolls")) { va4 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Pasties")) { va5 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Pastry")) { va6 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Cupcake")) { va7 = true; }
+        }
+        HorizontalAlbum a = new HorizontalAlbum("Fish Bun", (float) 40.00, 1, va1, covers[0]);
         albumList.add(a);
 
-        a = new Album("Lunch", covers[1]);
+        a = new HorizontalAlbum("Seeni Sambol Bun", (float) 40.00, 1, va2, covers[1]);
         albumList.add(a);
 
-        a = new Album("Shorteats", covers[2]);
+        a = new HorizontalAlbum("Egg Bun", (float) 40.00, 1, va3, covers[2]);
         albumList.add(a);
 
-        a = new Album("Drinks", covers[3]);
+        a = new HorizontalAlbum("Fish Rolls", (float) 30.00, 1, va4, covers[3]);
         albumList.add(a);
 
-        a = new Album("Deserts", covers[4]);
+        a = new HorizontalAlbum("Pasties", (float) 30.00, 1, va5, covers[4]);
         albumList.add(a);
 
-        a = new Album("Fruits", covers[5]);
+        a = new HorizontalAlbum("Pastry", (float) 40.00, 1, va6, covers[5]);
         albumList.add(a);
 
-        a = new Album("Fruit Juice", covers[6]);
+        a = new HorizontalAlbum("Cupcake", (float) 30.00, 1, va7, covers[6]);
         albumList.add(a);
 
         adapter.notifyDataSetChanged();
@@ -170,4 +179,6 @@ public class MainActivity extends AppCompatActivity {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
+
 }
+

@@ -32,6 +32,7 @@ public class DesertActivity extends AppCompatActivity {
         setContentView(R.layout.activity_desert);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initCollapsingToolbar();
 
@@ -100,25 +101,35 @@ public class DesertActivity extends AppCompatActivity {
                 R.drawable.desert_caramel_pudding,
                 R.drawable.desert_watalappan};
 
-        HorizontalAlbum a = new HorizontalAlbum("Vanilla Ice Cream", (float) 50.00, 1, false, covers[0]);
+        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
+        for (int i = 0; i < MainActivity.orderList.size(); i++) {
+            if(MainActivity.orderList.get(i).getName().equals("Vanilla Ice Cream")) { va1 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Chocolate Ice Cream")) { va2 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Strawberry Ice Cream")) { va3 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Yogurt")) { va4 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Biscuit Pudding")) { va5 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Caramel Pudding")) { va6 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Watalappan")) { va7 = true; }
+        }
+        HorizontalAlbum a = new HorizontalAlbum("Vanilla Ice Cream", (float) 50.00, 1, va1, covers[0]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Chocolate Ice Cream", (float) 50.00, 1, false, covers[1]);
+        a = new HorizontalAlbum("Chocolate Ice Cream", (float) 50.00, 1, va2, covers[1]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Strawberry Ice Cream", (float) 50.00, 1, false, covers[2]);
+        a = new HorizontalAlbum("Strawberry Ice Cream", (float) 50.00, 1, va3, covers[2]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Yogurt", (float) 35.00, 1, false, covers[3]);
+        a = new HorizontalAlbum("Yogurt", (float) 35.00, 1, va4, covers[3]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Biscuit Pudding ", (float) 60.00, 1, false, covers[4]);
+        a = new HorizontalAlbum("Biscuit Pudding", (float) 60.00, 1, va5, covers[4]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Caramel Pudding", (float) 70.00, 1, false, covers[5]);
+        a = new HorizontalAlbum("Caramel Pudding", (float) 70.00, 1, va6, covers[5]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Watalappan", (float) 70.00, 1, false, covers[6]);
+        a = new HorizontalAlbum("Watalappan", (float) 70.00, 1, va7, covers[6]);
         albumList.add(a);
 
         adapter.notifyDataSetChanged();

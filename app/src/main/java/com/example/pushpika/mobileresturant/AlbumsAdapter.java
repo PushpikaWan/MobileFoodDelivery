@@ -65,8 +65,38 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
             @Override
             public void onClick(View v) {
                 Log.d("item clicked -->", "image at pos" + position);
-                if (position == 4){
+                if (position == 0){
+                    Intent intent = new Intent(mContext,BreakfastActivity.class);
+                    mContext.startActivity(intent);
+                }
+
+                else if (position == 1){
+                    Intent intent = new Intent(mContext,LunchActivity.class);
+                    mContext.startActivity(intent);
+                }
+
+                else if (position == 2){
+                    Intent intent = new Intent(mContext,ShorteatsActivity.class);
+                    mContext.startActivity(intent);
+                }
+
+                else if (position == 3){
+                    Intent intent = new Intent(mContext,DrinksActivity.class);
+                    mContext.startActivity(intent);
+                }
+
+                else if (position == 4){
                     Intent intent = new Intent(mContext,DesertActivity.class);
+                    mContext.startActivity(intent);
+                }
+
+                else if (position == 5){
+                    Intent intent = new Intent(mContext,FruitsActivity.class);
+                    mContext.startActivity(intent);
+                }
+
+                else if (position == 6){
+                    Intent intent = new Intent(mContext,FruitJuiceActivity.class);
                     mContext.startActivity(intent);
                 }
             }
