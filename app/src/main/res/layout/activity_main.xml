@@ -75,4 +75,13 @@
 
     <include layout="@layout/content_main" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_local_grocery_store"
+        app:layout_anchorGravity="bottom|right|end"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="goOrders"/>
+
 </android.support.design.widget.CoordinatorLayout>

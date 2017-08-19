@@ -14,116 +14,73 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class TotalOrderActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private AlbumsAdapter adapter;
-    private List<Album> albumList;
-    public static List<HorizontalAlbum> orderList = new ArrayList<HorizontalAlbum>();
+    private OrderCardsAlbumAdapter adapter;
+    private List<HorizontalAlbum> albumList;
+    private TextView totalTextView;
+
+    public static float fullAmount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_total_order);
 
-        initCollapsingToolbar();
+        totalTextView = (TextView) findViewById(R.id.total);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("");
+        }
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new AlbumsAdapter(this, albumList);
+        adapter = new OrderCardsAlbumAdapter(this, albumList);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
+        recyclerView.addItemDecoration(new TotalOrderActivity.GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
         prepareAlbums();
 
         try {
-            Glide.with(this).load(R.drawable.cover).into((ImageView) findViewById(R.id.backdrop));
+            Glide.with(this).load(R.drawable.breakfast_category).into((ImageView) findViewById(R.id.backdrop));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * Initializing collapsing toolbar
-     * Will show and hide the toolbar title on scroll
-     */
-    private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
-
-        // hiding & showing the title when toolbar expanded & collapsed
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
-    }
 
     /**
      * Adding few albums for testing
      */
+
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.breakfast_category,
-                R.drawable.lunch_category,
-                R.drawable.shorteats_category,
-                R.drawable.drinks_category,
-                R.drawable.desert_category,
-                R.drawable.fruits_category,
-                R.drawable.fruit_juice_category,
-               };
+        float total = 0 ;
+        for (int i = 0; i < MainActivity.orderList.size(); i++) {
 
-        Album a = new Album("Breakfast", covers[0]);
-        albumList.add(a);
-
-        a = new Album("Lunch", covers[1]);
-        albumList.add(a);
-
-        a = new Album("Shorteats", covers[2]);
-        albumList.add(a);
-
-        a = new Album("Drinks", covers[3]);
-        albumList.add(a);
-
-        a = new Album("Deserts", covers[4]);
-        albumList.add(a);
-
-        a = new Album("Fruits", covers[5]);
-        albumList.add(a);
-
-        a = new Album("Fruit Juice", covers[6]);
-        albumList.add(a);
-
+            HorizontalAlbum a = new HorizontalAlbum(MainActivity.orderList.get(i).getName(), MainActivity.orderList.get(i).getPrice(),
+                    MainActivity.orderList.get(i).getQuantity(), MainActivity.orderList.get(i).getIsOrdered(), MainActivity.orderList.get(i).getThumbnail());
+            albumList.add(a);
+            total += (MainActivity.orderList.get(i).getQuantity()*MainActivity.orderList.get(i).getPrice());
+        }
         adapter.notifyDataSetChanged();
+        totalTextView.setText("Total : LKR "+total);
+        fullAmount = total;
     }
 
     /**
@@ -163,14 +120,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    public void goOrders(View view){
-        Intent intent = new Intent(this,TotalOrderActivity.class);
+
+    public void goPlaceOrder(View view){
+        Intent intent = new Intent(this,DeliveryActivity.class);
         startActivity(intent);
+    }
+
+    public void goCancelOrder(View view){
+
     }
 
     /**
      * Converting dp to pixel
      */
+
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
