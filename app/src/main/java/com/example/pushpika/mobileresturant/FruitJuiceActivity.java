@@ -122,7 +122,7 @@ public class FruitJuiceActivity extends AppCompatActivity {
         a = new HorizontalAlbum("Mango Juice", (float) 120.00, 1, va5, covers[4]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Mixed fruit Juice", (float) 100.00, 1, va6, covers[5]);
+        a = new HorizontalAlbum("Mixed fruit Juice", (float) 90.00, 1, va6, covers[5]);
         albumList.add(a);
 
         adapter.notifyDataSetChanged();
