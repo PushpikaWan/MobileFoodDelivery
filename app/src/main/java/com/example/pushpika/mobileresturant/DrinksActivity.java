@@ -93,43 +93,28 @@ public class DrinksActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
         int[] covers = new int[]{
-                R.drawable.drinks_hot_milk,
-                R.drawable.drinks_cool_milk,
-                R.drawable.drinks_tea,
-                R.drawable.drinks_plenty,
-                R.drawable.drinks_coffe,
-                R.drawable.drinks_milk_coffee,
-                R.drawable.drinks_milo};
+                R.drawable.drinks_vanilla,
+                R.drawable.drinks_chocolate,
+                R.drawable.drinks_ice_coffee,
+                R.drawable.drinks_falooda };
 
         boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
         for (int i = 0; i < MainActivity.orderList.size(); i++) {
-            if(MainActivity.orderList.get(i).getName().equals("Hot Milk")) { va1 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Cool Milk")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Tea")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Plenty")) { va4 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Coffee")) { va5 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Milk Coffee")) { va6 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Milo")) { va7 = true; }
+            if(MainActivity.orderList.get(i).getName().equals("Vanilla Milk Packet")) { va1 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Chocolate Milk Packet")) { va2 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Ice Coffee")) { va3 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Falooda")) { va4 = true; }
         }
-        HorizontalAlbum a = new HorizontalAlbum("Hot Milk", (float) 50.00, 1, va1, covers[0]);
+        HorizontalAlbum a = new HorizontalAlbum("Vanilla Milk Packet", (float) 40.00, 1, va1, covers[0]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Cool Milk", (float) 50.00, 1, va2, covers[1]);
+        a = new HorizontalAlbum("Chocolate Milk Packet", (float) 40.00, 1, va2, covers[1]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Tea", (float) 20.00, 1, va3, covers[2]);
+        a = new HorizontalAlbum("Ice Coffee", (float) 60.00, 1, va3, covers[2]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Plenty", (float) 10.00, 1, va4, covers[3]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Coffee", (float) 10.00, 1, va5, covers[4]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Milk Coffee", (float) 20.00, 1, va6, covers[5]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Milo", (float) 50.00, 1, va7, covers[6]);
+        a = new HorizontalAlbum("Falooda", (float) 100.00, 1, va4, covers[3]);
         albumList.add(a);
 
         adapter.notifyDataSetChanged();

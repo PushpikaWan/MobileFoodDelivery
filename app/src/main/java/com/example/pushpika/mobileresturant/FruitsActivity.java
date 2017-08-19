@@ -95,42 +95,49 @@ public class FruitsActivity extends AppCompatActivity {
         int[] covers = new int[]{
                 R.drawable.fruits_apple,
                 R.drawable.fruits_orange,
-                R.drawable.fruits_pineapple,
                 R.drawable.fruits_papaya,
-                R.drawable.fruits_avacado,
-                R.drawable.fruits_anodha,
-                R.drawable.fruits_mango};
+                R.drawable.fruits_mango,
+                R.drawable.fruits_grapes,
+                R.drawable.fruits_pears,
+                R.drawable.fruits_water_melon,
+                R.drawable.fruits_mixed_fruits
+                };
 
-        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
+        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false, va8 = false;
         for (int i = 0; i < MainActivity.orderList.size(); i++) {
             if(MainActivity.orderList.get(i).getName().equals("Apple")) { va1 = true; }
             else if(MainActivity.orderList.get(i).getName().equals("Orange")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Pineapple")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Papaya")) { va4 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Avocado")) { va5 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Anodha")) { va6 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Mango")) { va7 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Papaya")) { va3 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Mango")) { va4 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Grapes")) { va5 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Pears")) { va6 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Water melon")) { va7 = true; }
+            else if(MainActivity.orderList.get(i).getName().equals("Mixed fruits")) { va8 = true; }
         }
         HorizontalAlbum a = new HorizontalAlbum("Apple", (float) 50.00, 1, va1, covers[0]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Orange", (float) 60.00, 1, va2, covers[1]);
+        a = new HorizontalAlbum("Orange", (float) 50.00, 1, va2, covers[1]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Pineapple", (float) 70.00, 1, va3, covers[2]);
+        a = new HorizontalAlbum("Papaya", (float) 50.00, 1, va3, covers[2]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Papaya", (float) 50.00, 1, va4, covers[3]);
+        a = new HorizontalAlbum("Mango", (float) 60.00, 1, va4, covers[3]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Avocado", (float) 60.00, 1, va5, covers[4]);
+        a = new HorizontalAlbum("Grapes", (float) 70.00, 1, va5, covers[4]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Anodha", (float) 70.00, 1, va6, covers[5]);
+        a = new HorizontalAlbum("Pears", (float) 70.00, 1, va6, covers[5]);
         albumList.add(a);
 
-        a = new HorizontalAlbum("Mango", (float) 30.00, 1, va7, covers[6]);
+        a = new HorizontalAlbum("Water melon", (float) 50.00, 1, va7, covers[6]);
         albumList.add(a);
+
+        a = new HorizontalAlbum("Mixed fruits", (float) 70.00, 1, va8, covers[7]);
+        albumList.add(a);
+
 
         adapter.notifyDataSetChanged();
     }
