@@ -19,7 +19,7 @@ import java.util.List;
 public class OrderCardsAlbumAdapter extends RecyclerView.Adapter<OrderCardsAlbumAdapter.MyHorizontalViewHolder> {
 
     private Context mContext;
-    private List<HorizontalAlbum> albumList;
+    private List<ItemObject> albumList;
 
     public class MyHorizontalViewHolder extends RecyclerView.ViewHolder {
         public TextView title, priceQuantity,lineTotal;
@@ -35,7 +35,7 @@ public class OrderCardsAlbumAdapter extends RecyclerView.Adapter<OrderCardsAlbum
     }
 
 
-    public OrderCardsAlbumAdapter(Context mContext, List<HorizontalAlbum> albumList) {
+    public OrderCardsAlbumAdapter(Context mContext, List<ItemObject> albumList) {
         this.mContext = mContext;
         this.albumList = albumList;
     }
@@ -52,7 +52,7 @@ public class OrderCardsAlbumAdapter extends RecyclerView.Adapter<OrderCardsAlbum
 
     @Override
     public void onBindViewHolder(final OrderCardsAlbumAdapter.MyHorizontalViewHolder holder, final int position) {
-        final HorizontalAlbum album = albumList.get(position);
+        final ItemObject album = albumList.get(position);
         holder.title.setText(album.getName());
         holder.priceQuantity.setText(album.getQuantity()+" X "+album.getPrice());
         holder.lineTotal.setText(String.valueOf(album.getQuantity()*album.getPrice()));

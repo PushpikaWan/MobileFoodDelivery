@@ -22,8 +22,8 @@ import java.util.List;
 public class FruitJuiceActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private DesertHorizontalAlbumsAdapter adapter;
-    private List<HorizontalAlbum> albumList;
+    private ItemObjectAdapter adapter;
+    private List<ItemObject> albumList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class FruitJuiceActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new DesertHorizontalAlbumsAdapter(this, albumList);
+        adapter = new ItemObjectAdapter(this, albumList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -90,45 +90,11 @@ public class FruitJuiceActivity extends AppCompatActivity {
      * Adding few albums for testing
      */
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.fruit_juice_apple_juice,
-                R.drawable.fruit_juice_orange_juice,
-                R.drawable.fruit_juice_papaya_juice,
-                R.drawable.fruit_juice_papaya_juice,
-                R.drawable.fruit_juice_watermelon,
-                R.drawable.fruit_juice_mixed_fruit_juice,
-                R.drawable.fruit_juice_mixed_fruit_juice};
 
-        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
-        for (int i = 0; i < MainActivity.orderList.size(); i++) {
-            if(MainActivity.orderList.get(i).getName().equals("Apple Juice")) { va1 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Orange Juice")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Papaya Juice with Ice Cream")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Papaya Juice without Ice Cream")) { va4 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Water melon Juice")) { va5 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Mixed fruit Juice  with Ice Cream")) { va6 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Mixed fruit Juice  without Ice Cream")) { va7 = true; }
+        for (int i = 0; i < SplashScreenActivity.fruitJuiceItemList.size(); i++) {
+            ItemObject a = new ItemObject(SplashScreenActivity.fruitJuiceItemList.get(i));
+            albumList.add(a);
         }
-        HorizontalAlbum a = new HorizontalAlbum("Apple Juice", (float) 70.00, 1, va1, covers[0]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Orange Juice", (float) 70.00, 1, va2, covers[1]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Papaya Juice with Ice Cream", (float) 100.00, 1, va3, covers[2]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Papaya Juice without Ice Cream", (float) 70.00, 1, va4, covers[3]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Water melon Juice", (float) 70.00, 1, va5, covers[4]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Mixed fruit Juice  with Ice Cream", (float) 100.00, 1, va6, covers[5]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Mixed fruit Juice  without Ice Cream", (float) 70.00, 1, va7, covers[6]);
-        albumList.add(a);
 
         adapter.notifyDataSetChanged();
     }

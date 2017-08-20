@@ -21,8 +21,8 @@ import java.util.List;
 
 public class ShorteatsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private DesertHorizontalAlbumsAdapter adapter;
-    private List<HorizontalAlbum> albumList;
+    private ItemObjectAdapter adapter;
+    private List<ItemObject> albumList;
 
 
     @Override
@@ -38,7 +38,7 @@ public class ShorteatsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new DesertHorizontalAlbumsAdapter(this, albumList);
+        adapter = new ItemObjectAdapter(this, albumList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -91,45 +91,11 @@ public class ShorteatsActivity extends AppCompatActivity {
      * Adding few albums for testing
      */
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.shorteats_fish_bun,
-                R.drawable.shorteats_seenisambol,
-                R.drawable.shorteats_egg_bun,
-                R.drawable.shorteats_fish_rolls,
-                R.drawable.shorteats_pasties,
-                R.drawable.shorteats_pastry,
-                R.drawable.shorteats_cupcakes};
 
-        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
-        for (int i = 0; i < MainActivity.orderList.size(); i++) {
-            if(MainActivity.orderList.get(i).getName().equals("Fish Bun")) { va1 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Seeni Sambol Bun")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Egg Bun")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Fish Rolls")) { va4 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Pasties")) { va5 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Pastry")) { va6 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Cupcake")) { va7 = true; }
+        for (int i = 0; i < SplashScreenActivity.shorteatsItemList.size(); i++) {
+            ItemObject a = new ItemObject(SplashScreenActivity.shorteatsItemList.get(i));
+            albumList.add(a);
         }
-        HorizontalAlbum a = new HorizontalAlbum("Fish Bun", (float) 40.00, 1, va1, covers[0]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Seeni Sambol Bun", (float) 40.00, 1, va2, covers[1]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Egg Bun", (float) 40.00, 1, va3, covers[2]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Fish Rolls", (float) 30.00, 1, va4, covers[3]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Pasties", (float) 30.00, 1, va5, covers[4]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Pastry", (float) 40.00, 1, va6, covers[5]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Cupcake", (float) 30.00, 1, va7, covers[6]);
-        albumList.add(a);
 
         adapter.notifyDataSetChanged();
     }

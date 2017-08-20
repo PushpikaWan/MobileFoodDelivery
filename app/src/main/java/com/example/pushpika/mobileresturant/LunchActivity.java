@@ -22,8 +22,8 @@ import java.util.List;
 public class LunchActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private DesertHorizontalAlbumsAdapter adapter;
-    private List<HorizontalAlbum> albumList;
+    private ItemObjectAdapter adapter;
+    private List<ItemObject> albumList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class LunchActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new DesertHorizontalAlbumsAdapter(this, albumList);
+        adapter = new ItemObjectAdapter(this, albumList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -91,36 +91,11 @@ public class LunchActivity extends AppCompatActivity {
      * Adding few albums for testing
      */
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.lunch_vegitable_rice,
-                R.drawable.lunch_chicken_rice,
-                R.drawable.lunch_fish_rice,
-                R.drawable.lunch_egg_rice,
-                R.drawable.lunch_fried_rice};
 
-        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false;
-        for (int i = 0; i < MainActivity.orderList.size(); i++) {
-            if(MainActivity.orderList.get(i).getName().equals("Vegetable Rice")) { va1 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Chicken Rice")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Fish Rice")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Egg Rice")) { va4 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Fried Rice")) { va5 = true; }
+        for (int i = 0; i < SplashScreenActivity.lunchItemList.size(); i++) {
+            ItemObject a = new ItemObject(SplashScreenActivity.lunchItemList.get(i));
+            albumList.add(a);
         }
-        HorizontalAlbum a = new HorizontalAlbum("Vegetable Rice", (float) 110.00, 1, va1, covers[0]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Chicken Rice", (float) 190.00, 1, va2, covers[1]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Fish Rice", (float) 150.00, 1, va3, covers[2]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Egg Rice", (float) 120.00, 1, va4, covers[3]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Fried Rice", (float) 230.00, 1, va5, covers[4]);
-        albumList.add(a);
-
         adapter.notifyDataSetChanged();
     }
 

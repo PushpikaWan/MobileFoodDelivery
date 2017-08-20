@@ -21,8 +21,8 @@ import java.util.List;
 
 public class BreakfastActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private DesertHorizontalAlbumsAdapter adapter;
-    private List<HorizontalAlbum> albumList;
+    private ItemObjectAdapter adapter;
+    private List<ItemObject> albumList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class BreakfastActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new DesertHorizontalAlbumsAdapter(this, albumList);
+        adapter = new ItemObjectAdapter(this, albumList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -90,31 +90,11 @@ public class BreakfastActivity extends AppCompatActivity {
      * Adding few albums for testing
      */
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.breakfast_rice,
-                R.drawable.breakfast_string_hoppers,
-                R.drawable.breakfast_milk_rice,
-                R.drawable.breakfast_rotti };
 
-        boolean va1 = false,va2 = false,va3 = false,va4 = false;
-        for (int i = 0; i < MainActivity.orderList.size(); i++) {
-            if(MainActivity.orderList.get(i).getName().equals("Rice")) { va1 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("String Hoppers parcel")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Milk Rice 2 pieces")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Rotti")) { va4 = true; }
-
+        for (int i = 0; i < SplashScreenActivity.breakfastItemList.size(); i++) {
+            ItemObject a = new ItemObject(SplashScreenActivity.breakfastItemList.get(i));
+            albumList.add(a);
         }
-        HorizontalAlbum a = new HorizontalAlbum("Rice", (float) 90.00, 1, va1, covers[0]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("String Hoppers parcel", (float) 45.00, 1, va2, covers[1]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Milk Rice 2 pieces", (float) 70.00, 1, va3, covers[2]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Rotti", (float) 15.00, 1, va4, covers[3]);
-        albumList.add(a);
 
         adapter.notifyDataSetChanged();
     }

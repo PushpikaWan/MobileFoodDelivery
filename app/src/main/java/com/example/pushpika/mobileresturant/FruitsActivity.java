@@ -22,8 +22,8 @@ import java.util.List;
 public class FruitsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private DesertHorizontalAlbumsAdapter adapter;
-    private List<HorizontalAlbum> albumList;
+    private ItemObjectAdapter adapter;
+    private List<ItemObject> albumList;
 
 
     @Override
@@ -39,7 +39,7 @@ public class FruitsActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        adapter = new DesertHorizontalAlbumsAdapter(this, albumList);
+        adapter = new ItemObjectAdapter(this, albumList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -92,52 +92,11 @@ public class FruitsActivity extends AppCompatActivity {
      * Adding few albums for testing
      */
     private void prepareAlbums() {
-        int[] covers = new int[]{
-                R.drawable.fruits_apple,
-                R.drawable.fruits_orange,
-                R.drawable.fruits_papaya,
-                R.drawable.fruits_mango,
-                R.drawable.fruits_grapes,
-                R.drawable.fruits_pears,
-                R.drawable.fruits_water_melon,
-                R.drawable.fruits_mixed_fruits
-                };
 
-        boolean va1 = false,va2 = false,va3 = false,va4 = false,va5 = false,va6 = false,va7 = false, va8 = false;
-        for (int i = 0; i < MainActivity.orderList.size(); i++) {
-            if(MainActivity.orderList.get(i).getName().equals("Apple")) { va1 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Orange")) { va2 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Papaya")) { va3 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Mango")) { va4 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Grapes")) { va5 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Pears")) { va6 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Water melon")) { va7 = true; }
-            else if(MainActivity.orderList.get(i).getName().equals("Mixed fruits")) { va8 = true; }
+        for (int i = 0; i < SplashScreenActivity.fruitsItemList.size(); i++) {
+            ItemObject a = new ItemObject(SplashScreenActivity.fruitsItemList.get(i));
+            albumList.add(a);
         }
-        HorizontalAlbum a = new HorizontalAlbum("Apple", (float) 50.00, 1, va1, covers[0]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Orange", (float) 50.00, 1, va2, covers[1]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Papaya", (float) 50.00, 1, va3, covers[2]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Mango", (float) 60.00, 1, va4, covers[3]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Grapes", (float) 70.00, 1, va5, covers[4]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Pears", (float) 70.00, 1, va6, covers[5]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Water melon", (float) 50.00, 1, va7, covers[6]);
-        albumList.add(a);
-
-        a = new HorizontalAlbum("Mixed fruits", (float) 70.00, 1, va8, covers[7]);
-        albumList.add(a);
-
 
         adapter.notifyDataSetChanged();
     }

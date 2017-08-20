@@ -16,10 +16,14 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class DesertHorizontalAlbumsAdapter extends RecyclerView.Adapter<DesertHorizontalAlbumsAdapter.MyHorizontalViewHolder> {
+/**
+ * Created by pushpika on 8/20/17.
+ */
+
+public class ItemObjectAdapter extends RecyclerView.Adapter<ItemObjectAdapter.MyHorizontalViewHolder> {
 
     private Context mContext;
-    private List<HorizontalAlbum> albumList;
+    private List<ItemObject> albumList;
 
     public class MyHorizontalViewHolder extends RecyclerView.ViewHolder {
         public TextView title, price;
@@ -38,24 +42,24 @@ public class DesertHorizontalAlbumsAdapter extends RecyclerView.Adapter<DesertHo
     }
 
 
-    public DesertHorizontalAlbumsAdapter(Context mContext, List<HorizontalAlbum> albumList) {
+    public ItemObjectAdapter(Context mContext, List<ItemObject> albumList) {
         this.mContext = mContext;
         this.albumList = albumList;
     }
 
     @Override
-    public MyHorizontalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ItemObjectAdapter.MyHorizontalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.horizontal_album_card, parent, false);
 
-        return new MyHorizontalViewHolder(itemView);
+        return new ItemObjectAdapter.MyHorizontalViewHolder(itemView);
     }
 
 
 
     @Override
-    public void onBindViewHolder(final MyHorizontalViewHolder holder, final int position) {
-        final HorizontalAlbum album = albumList.get(position);
+    public void onBindViewHolder(final ItemObjectAdapter.MyHorizontalViewHolder holder, final int position) {
+        final ItemObject album = albumList.get(position);
         holder.title.setText(album.getName());
         holder.price.setText(" LKR "+album.getPrice());
         //holder.quantity.getSelectedItem();

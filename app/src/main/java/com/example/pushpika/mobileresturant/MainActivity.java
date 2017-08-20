@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AlbumsAdapter adapter;
     private List<Album> albumList;
-    public static List<HorizontalAlbum> orderList = new ArrayList<HorizontalAlbum>();
+    public static List<ItemObject> orderList = new ArrayList<ItemObject>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

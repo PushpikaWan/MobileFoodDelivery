@@ -66,8 +66,8 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
             public void onClick(View v) {
                 Log.d("item clicked -->", "image at pos" + position);
                 if (position == 0){
-                   // Intent intent = new Intent(mContext,BreakfastActivity.class);
-                   // mContext.startActivity(intent);
+                    Intent intent = new Intent(mContext,BreakfastActivity.class);
+                    mContext.startActivity(intent);
                 }
 
                 else if (position == 1){
@@ -76,8 +76,8 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
                 }
 
                 else if (position == 2){
-                    //Intent intent = new Intent(mContext,ShorteatsActivity.class);
-                    //mContext.startActivity(intent);
+                    Intent intent = new Intent(mContext,ShorteatsActivity.class);
+                    mContext.startActivity(intent);
                 }
 
                 else if (position == 3){

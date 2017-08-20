@@ -25,7 +25,7 @@ public class TotalOrderActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private OrderCardsAlbumAdapter adapter;
-    private List<HorizontalAlbum> albumList;
+    private List<ItemObject> albumList;
     private TextView totalTextView;
 
     public static float fullAmount = 0;
@@ -70,11 +70,11 @@ public class TotalOrderActivity extends AppCompatActivity {
      */
 
     private void prepareAlbums() {
+
         float total = 0 ;
         for (int i = 0; i < MainActivity.orderList.size(); i++) {
 
-            HorizontalAlbum a = new HorizontalAlbum(MainActivity.orderList.get(i).getName(), MainActivity.orderList.get(i).getPrice(),
-                    MainActivity.orderList.get(i).getQuantity(), MainActivity.orderList.get(i).getIsOrdered(), MainActivity.orderList.get(i).getThumbnail());
+            ItemObject a = new ItemObject(MainActivity.orderList.get(i));
             albumList.add(a);
             total += (MainActivity.orderList.get(i).getQuantity()*MainActivity.orderList.get(i).getPrice());
         }
