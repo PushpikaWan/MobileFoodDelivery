@@ -55,6 +55,12 @@ public class LunchActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     /**
      * Initializing collapsing toolbar
      * Will show and hide the toolbar title on scroll

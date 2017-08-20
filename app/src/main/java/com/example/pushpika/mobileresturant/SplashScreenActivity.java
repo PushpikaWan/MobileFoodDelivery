@@ -33,6 +33,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     public static List<ItemObject> desertItemList = new ArrayList<>();
     public static List<ItemObject> fruitsItemList = new ArrayList<>();
     public static List<ItemObject> fruitJuiceItemList = new ArrayList<>();
+
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
 
@@ -71,7 +72,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         showJSON(ServerResponse);
                         // Showing response message coming from server.
-                        Toast.makeText(SplashScreenActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                       // Toast.makeText(SplashScreenActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -154,5 +155,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         Intent intents = new Intent(this, MainActivity.class);
         startActivity(intents);
+        finish();
     }
 }

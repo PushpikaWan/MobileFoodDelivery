@@ -1,6 +1,7 @@
 package com.example.pushpika.mobileresturant;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -65,6 +66,12 @@ public class DeliveryActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(DeliveryActivity.this);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
     // Creating method to get value from EditText.
     public void GetValueFromEditText(){
 
@@ -76,7 +83,8 @@ public class DeliveryActivity extends AppCompatActivity {
     }
 
     public void goOrder(View view){
-
+        super.onBackPressed();
+        finish();
     }
 
     public void goSendOrder(final View view){
@@ -98,7 +106,7 @@ public class DeliveryActivity extends AppCompatActivity {
                         //Integer.parseInt(ServerResponse)==0 error
                         sendItems(view, Integer.parseInt(ServerResponse));
                         // Showing response message coming from server.
-                        Toast.makeText(DeliveryActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(DeliveryActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
@@ -142,9 +150,9 @@ public class DeliveryActivity extends AppCompatActivity {
 
     public void sendItems(View view, final int orderID){
         // Showing progress dialog at user registration time.
-        progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
+        progressDialog.setMessage("Please Wait, We are Sending your order");
         progressDialog.show();
-
+        final Intent intent = new Intent(this,ThankActivity.class);
         // Calling method to get value from EditText.
         GetValueFromEditText();
 
@@ -158,7 +166,10 @@ public class DeliveryActivity extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         // Showing response message coming from server.
-                        Toast.makeText(DeliveryActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(DeliveryActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                        MainActivity.orderList.clear();
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {

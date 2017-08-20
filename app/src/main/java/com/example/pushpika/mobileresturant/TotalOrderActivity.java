@@ -64,6 +64,11 @@ public class TotalOrderActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     /**
      * Adding few albums for testing
@@ -122,12 +127,16 @@ public class TotalOrderActivity extends AppCompatActivity {
     }
 
     public void goPlaceOrder(View view){
-        Intent intent = new Intent(this,DeliveryActivity.class);
-        startActivity(intent);
+        if (fullAmount!=0) {
+            Intent intent = new Intent(this, DeliveryActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void goCancelOrder(View view){
-
+        MainActivity.orderList.clear();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
     /**

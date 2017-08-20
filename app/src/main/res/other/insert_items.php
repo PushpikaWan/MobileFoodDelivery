@@ -17,7 +17,7 @@ include 'DatabaseConfig.php';
  $Total_Line_Pieces = explode(",", $Total_Line_Array);
 
  for( $j = 0; $j<= $Array_Length; $j++ ) {
-     $Sql_Query = "insert into OrderedItems (Order_ID,Item_ID,Price,Quantity,TotalPrice) values ($Order_ID, '$Item_Pieces[$j]','$Quantity_Pieces[$j]','$Price_Pieces[$j]','$Total_Line_Pieces[$j]')";
+     $Sql_Query = "insert into OrderedItems (Order_ID,Item_ID,Price,Quantity,TotalPrice) values ($Order_ID, '$Item_Pieces[$j]','$Price_Pieces[$j]','$Quantity_Pieces[$j]','$Total_Line_Pieces[$j]')";
  mysqli_query($con,$Sql_Query);
 }
  mysqli_close($con);

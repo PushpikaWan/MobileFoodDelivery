@@ -66,7 +66,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
             public void onClick(View v) {
                 Log.d("item clicked -->", "image at pos" + position);
                 if (position == 0){
-                    Intent intent = new Intent(mContext,BreakfastActivity.class);
+                    Intent intent = new Intent(mContext,AdminViewOrderActivity.class);
                     mContext.startActivity(intent);
                 }
 
