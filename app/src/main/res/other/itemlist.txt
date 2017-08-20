@@ -1,0 +1,129 @@
+Breakfast
+---
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Rice","Breakfast","Yes","90.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("String Hoppers parcel","Breakfast","Yes", 45.00);
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Milk Rice 2 pieces","Breakfast","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Rotti","Breakfast","Yes","15.00");
+
+
+Lunch 
+-----
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Vegetable Rice","Lunch","Yes","110.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Chicken Rice","Lunch","Yes","190.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Fish Rice","Lunch","Yes","150.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Egg Rice","Lunch","Yes","120.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Fried Rice","Lunch","Yes","230.00");
+
+
+
+Shorteats
+
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Fish Bun","Shorteats","Yes","40.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Seeni Sambol Bun","Shorteats","Yes","40.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Egg Bun","Shorteats","Yes","40.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Fish Rolls","Shorteats","Yes","30.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Pasties","Shorteats","Yes","30.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Pastry","Shorteats","Yes","40.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Cupcake","Shorteats","Yes","30.00");
+
+
+
+Drinks
+
+-------
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Vanilla Milk Packet","Drinks","Yes","40.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Chocolate Milk Packet","Drinks","Yes","40.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Ice Coffee","Drinks","Yes","60.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Falooda","Drinks","Yes","100.00");
+
+Deserts
+
+"", (float) 
+"", (float) 
+"", (float) 
+"", (float) 
+"", (float) 
+"", (float) 
+"", (float) 
+
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Vanilla Ice Cream","Deserts","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Chocolate Ice Cream","Deserts","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Strawberry Ice Cream","Deserts","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Yogurt","Deserts","Yes","35.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Biscuit Pudding","Deserts","Yes","60.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("CreamCaramel Pudding","Deserts","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Watalappan","Deserts","Yes","70.00");
+
+
+
+Fruits
+
+---------
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Apple","Fruits","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Orange","Fruits","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Papaya","Fruits","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Mango","Fruits","Yes","60.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Grapes","Fruits","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Pears","Fruits","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Water melon","Fruits","Yes","50.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Mixed fruits","Fruits","Yes","70.00");
+
+
+
+Fruit Juice
+
+---------
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Apple Juice","Fruit Juice","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Orange Juice","Fruit Juice","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Papaya Juice with Ice Cream","Fruit Juice","Yes","100.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Papaya Juice without Ice Cream","Fruit Juice","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Water melon Juice","Fruit Juice","Yes","70.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Mixed fruit Juice  with Ice Cream","Fruit Juice","Yes","100.00");
+INSERT INTO Items (Name,Category,Availability,Price) Values
+("Mixed fruit Juice  without Ice Cream","Fruit Juice","Yes","70.00");
+
+
+
+
+
