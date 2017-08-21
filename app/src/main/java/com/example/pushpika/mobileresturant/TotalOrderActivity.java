@@ -130,12 +130,14 @@ public class TotalOrderActivity extends AppCompatActivity {
         if (fullAmount!=0) {
             Intent intent = new Intent(this, DeliveryActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
     public void goCancelOrder(View view){
         MainActivity.orderList.clear();
         Intent intent = new Intent(this,MainActivity.class);
+        finish();
         startActivity(intent);
     }
 

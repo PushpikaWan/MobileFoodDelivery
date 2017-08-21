@@ -83,7 +83,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         // Showing error message if something goes wrong.
-                        Toast.makeText(SplashScreenActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                       // Toast.makeText(SplashScreenActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(SplashScreenActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
                         Log.d("Splasch screen","Server error Response"+volleyError);
                     }
                 }) {

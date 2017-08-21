@@ -61,7 +61,8 @@
                     android:ems="10"
                     android:id="@+id/nameText"
                     android:layout_weight="1"
-                    android:padding="@dimen/album_title_padding"/>
+                    android:padding="@dimen/album_title_padding"
+                    android:maxLength="20" />
 
             </LinearLayout>
 
@@ -91,7 +92,8 @@
                     android:ems="10"
                     android:id="@+id/placeText"
                     android:layout_weight="1"
-                    android:padding="@dimen/album_title_padding"/>
+                    android:padding="@dimen/album_title_padding"
+                    android:maxLength="30" />
 
             </LinearLayout>
 
@@ -118,11 +120,12 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/contactText"
                     android:layout_weight="1"
-                    android:padding="@dimen/album_title_padding"/>
+                    android:padding="@dimen/album_title_padding"
+                    android:maxLength="10"
+                    android:inputType="number" />
 
             </LinearLayout>
 

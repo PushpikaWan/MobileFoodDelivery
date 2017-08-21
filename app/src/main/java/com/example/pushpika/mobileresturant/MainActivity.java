@@ -123,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
         a = new Album("Fruit Juice", covers[6]);
         albumList.add(a);
 
+        //only for admin
+        //a = new Album("Orders",R.drawable.no_image_available);
+        //albumList.add(a);
+
         adapter.notifyDataSetChanged();
     }
 

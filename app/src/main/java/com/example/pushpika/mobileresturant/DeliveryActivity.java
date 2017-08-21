@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -68,7 +69,8 @@ public class DeliveryActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Intent intent = new Intent(this,TotalOrderActivity.class);
+        startActivity(intent);
         finish();
     }
 
@@ -83,17 +85,40 @@ public class DeliveryActivity extends AppCompatActivity {
     }
 
     public void goOrder(View view){
-        super.onBackPressed();
+        Intent intent = new Intent(this,TotalOrderActivity.class);
+        startActivity(intent);
         finish();
     }
 
     public void goSendOrder(final View view){
         // Showing progress dialog at user registration time.
         progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
-        progressDialog.show();
 
         // Calling method to get value from EditText.
         GetValueFromEditText();
+
+        //check validity
+        if (TextUtils.isEmpty(nameHolder)) {
+            nameText.setError(getString(R.string.error_field_required));
+            return;
+        }
+
+        if (TextUtils.isEmpty(placeHolder)) {
+            placeText.setError(getString(R.string.error_field_required));
+            return;
+        }
+
+        if (TextUtils.isEmpty(contactHolder)) {
+            contactText.setError(getString(R.string.error_field_required));
+            return;
+        }
+
+        if (contactHolder.length()!=10) {
+            contactText.setError(getString(R.string.error_contact));
+            return;
+        }
+
+        progressDialog.show();
 
         // Creating string request with post method.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrl,
@@ -117,7 +142,8 @@ public class DeliveryActivity extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         // Showing error message if something goes wrong.
-                        Toast.makeText(DeliveryActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(DeliveryActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(DeliveryActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -180,7 +206,8 @@ public class DeliveryActivity extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         // Showing error message if something goes wrong.
-                        Toast.makeText(DeliveryActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(DeliveryActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(DeliveryActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

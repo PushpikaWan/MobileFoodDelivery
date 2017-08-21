@@ -76,7 +76,8 @@ public class AdminViewOrderActivity extends AppCompatActivity {
                         progressDialog.dismiss();
 
                         // Showing error message if something goes wrong.
-                        Toast.makeText(AdminViewOrderActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(AdminViewOrderActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(AdminViewOrderActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
                         Log.d("Admin order screen","Server error Response"+volleyError);
                     }
                 }) {

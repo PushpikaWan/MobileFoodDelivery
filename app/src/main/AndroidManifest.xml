@@ -58,8 +58,11 @@
             android:name=".DeliveryActivity"
             android:parentActivityName=".TotalOrderActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ThankActivity" />
-        <activity android:name=".AdminViewOrderActivity"></activity>
+        <activity android:name=".ThankActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".AdminViewOrderActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

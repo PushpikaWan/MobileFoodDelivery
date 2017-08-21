@@ -10,7 +10,8 @@ public class ItemObject {
     private boolean isOrdered;
     private int thumbnail;
 
-    private int [] imageList = { R.drawable.breakfast_rice, R.drawable.breakfast_string_hoppers, R.drawable.breakfast_milk_rice, R.drawable.breakfast_rotti,
+    private int [] imageList = { R.drawable.no_image_available,
+            R.drawable.breakfast_rice, R.drawable.breakfast_string_hoppers, R.drawable.breakfast_milk_rice, R.drawable.breakfast_rotti,
             R.drawable.lunch_vegitable_rice, R.drawable.lunch_chicken_rice, R.drawable.lunch_fish_rice, R.drawable.lunch_egg_rice, R.drawable.lunch_fried_rice,
             R.drawable.shorteats_fish_bun, R.drawable.shorteats_seenisambol, R.drawable.shorteats_egg_bun, R.drawable.shorteats_fish_rolls, R.drawable.shorteats_pasties, R.drawable.shorteats_pastry, R.drawable.shorteats_cupcakes,
             R.drawable.drinks_vanilla, R.drawable.drinks_chocolate, R.drawable.drinks_ice_coffee, R.drawable.drinks_falooda,
@@ -81,7 +82,10 @@ public class ItemObject {
     }
 
     public int getThumbnail() {
-        return imageList[thumbnail-1];
+        if (thumbnail < imageList.length){
+            return imageList[thumbnail];
+        }
+        return imageList[0];
     }
     public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
