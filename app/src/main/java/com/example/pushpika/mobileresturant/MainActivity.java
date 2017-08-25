@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,8 +13,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 
@@ -26,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
     private AlbumsAdapter adapter;
     private List<Album> albumList;
     public static List<ItemObject> orderList = new ArrayList<ItemObject>();
+    public ImageButton imageButton1, imageButton2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        imageButton1 = (ImageButton) findViewById(R.id.about_icon);
+        imageButton2 = (ImageButton) findViewById(R.id.about_icon2);
         setSupportActionBar(toolbar);
 
         initCollapsingToolbar();
@@ -79,9 +86,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (scrollRange + verticalOffset == 0) {
                     collapsingToolbar.setTitle(getString(R.string.app_name));
+                    imageButton1.setVisibility(View.INVISIBLE);
+                    imageButton2.setVisibility(View.VISIBLE);
                     isShow = true;
                 } else if (isShow) {
                     collapsingToolbar.setTitle(" ");
+                    imageButton1.setVisibility(View.VISIBLE);
+                    imageButton2.setVisibility(View.INVISIBLE);
                     isShow = false;
                 }
             }

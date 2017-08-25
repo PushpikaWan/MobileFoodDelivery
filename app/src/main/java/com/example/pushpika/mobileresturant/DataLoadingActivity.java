@@ -37,6 +37,8 @@ public class DataLoadingActivity extends AppCompatActivity {
     public static List<ItemObject> fruitsItemList = new ArrayList<>();
     public static List<ItemObject> fruitJuiceItemList = new ArrayList<>();
 
+    public static int error_message = 0;
+
     // Creating Volley RequestQueue.
     RequestQueue requestQueue;
 
@@ -99,14 +101,23 @@ public class DataLoadingActivity extends AppCompatActivity {
                         // Hiding the progress dialog after all task complete.
                         progressDialog.dismiss();
 
-                        // Showing error message if something goes wrong.
-                        // Toast.makeText(SplashScreenActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(DataLoadingActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
-                        //reload
-                        Intent intent = new Intent(DataLoadingActivity.this,DataLoadingActivity.class);
-                        startActivity(intent);
-                        finish();
-                        Log.d("Splasch screen","Server error Response"+volleyError);
+                        error_message++;
+                        if (error_message % 10 == 0 && error_message <= 20 ){
+
+                            // Showing error message if something goes wrong.
+                            // Toast.makeText(SplashScreenActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(DataLoadingActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
+
+                        }
+
+                        if (error_message<21){
+                            //reload
+                            Intent intent = new Intent(DataLoadingActivity.this,DataLoadingActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+                       // Log.d("Splasch screen","Server error Response"+volleyError);
                     }
                 }) {
             @Override
