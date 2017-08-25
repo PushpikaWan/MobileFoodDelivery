@@ -99,8 +99,8 @@ public class DrinksActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        for (int i = 0; i < SplashScreenActivity.drinksItemList.size(); i++) {
-            ItemObject a = new ItemObject(SplashScreenActivity.drinksItemList.get(i));
+        for (int i = 0; i < DataLoadingActivity.drinksItemList.size(); i++) {
+            ItemObject a = new ItemObject(DataLoadingActivity.drinksItemList.get(i));
             albumList.add(a);
         }
 

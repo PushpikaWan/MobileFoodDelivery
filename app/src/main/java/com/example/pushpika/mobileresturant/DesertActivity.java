@@ -99,8 +99,8 @@ public class DesertActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        for (int i = 0; i < SplashScreenActivity.desertItemList.size(); i++) {
-            ItemObject a = new ItemObject(SplashScreenActivity.desertItemList.get(i));
+        for (int i = 0; i < DataLoadingActivity.desertItemList.size(); i++) {
+            ItemObject a = new ItemObject(DataLoadingActivity.desertItemList.get(i));
             albumList.add(a);
         }
         adapter.notifyDataSetChanged();

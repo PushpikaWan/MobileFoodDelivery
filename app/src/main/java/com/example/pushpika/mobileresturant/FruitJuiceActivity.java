@@ -97,8 +97,8 @@ public class FruitJuiceActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        for (int i = 0; i < SplashScreenActivity.fruitJuiceItemList.size(); i++) {
-            ItemObject a = new ItemObject(SplashScreenActivity.fruitJuiceItemList.get(i));
+        for (int i = 0; i < DataLoadingActivity.fruitJuiceItemList.size(); i++) {
+            ItemObject a = new ItemObject(DataLoadingActivity.fruitJuiceItemList.get(i));
             albumList.add(a);
         }
 

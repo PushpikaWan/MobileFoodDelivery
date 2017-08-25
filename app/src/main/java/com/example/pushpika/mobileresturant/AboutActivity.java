@@ -1,20 +1,19 @@
 package com.example.pushpika.mobileresturant;
 
-import android.content.Intent;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
-public class ThankActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //change notification bar color
         Window window = this.getWindow();
 
 // clear FLAG_TRANSLUCENT_STATUS flag:
@@ -28,14 +27,14 @@ public class ThankActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimaryDark));
         }
 
-        setContentView(R.layout.activity_thank);
-    }
+        setContentView(R.layout.activity_about);
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("");
+        }
+    }
 }

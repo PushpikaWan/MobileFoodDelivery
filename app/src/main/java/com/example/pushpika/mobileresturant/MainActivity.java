@@ -172,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goAbout(View view){
+        Intent intent = new Intent(this,AboutActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * Converting dp to pixel
      */

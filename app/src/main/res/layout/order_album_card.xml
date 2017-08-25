@@ -30,7 +30,7 @@
                     android:layout_height="@dimen/calculation_cover_height"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
-                    android:scaleType="fitXY" />
+                    android:scaleType="centerCrop" />
 
             </LinearLayout>
 

@@ -98,8 +98,8 @@ public class ShorteatsActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        for (int i = 0; i < SplashScreenActivity.shorteatsItemList.size(); i++) {
-            ItemObject a = new ItemObject(SplashScreenActivity.shorteatsItemList.get(i));
+        for (int i = 0; i < DataLoadingActivity.shorteatsItemList.size(); i++) {
+            ItemObject a = new ItemObject(DataLoadingActivity.shorteatsItemList.get(i));
             albumList.add(a);
         }
 

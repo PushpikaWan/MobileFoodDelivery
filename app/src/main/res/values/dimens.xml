@@ -13,6 +13,8 @@
     <dimen name="calculation_cover_height">100dp</dimen>
     <dimen name="album_title_padding">10dp</dimen>
     <dimen name="album_title">15dp</dimen>
+    <dimen name="done_button">30dp</dimen>
+    <dimen name="thank_text_size">25dp</dimen>
     <dimen name="album_price">10dp</dimen>
     <dimen name="songs_count_padding_bottom">5dp</dimen>
     <dimen name="songs_count">12dp</dimen>

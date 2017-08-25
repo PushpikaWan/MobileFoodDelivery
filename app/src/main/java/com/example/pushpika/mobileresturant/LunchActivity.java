@@ -98,8 +98,8 @@ public class LunchActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        for (int i = 0; i < SplashScreenActivity.lunchItemList.size(); i++) {
-            ItemObject a = new ItemObject(SplashScreenActivity.lunchItemList.get(i));
+        for (int i = 0; i < DataLoadingActivity.lunchItemList.size(); i++) {
+            ItemObject a = new ItemObject(DataLoadingActivity.lunchItemList.get(i));
             albumList.add(a);
         }
         adapter.notifyDataSetChanged();

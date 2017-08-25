@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">MobileResturant</string>
+    <string name="app_name">e - wattoruwa</string>
     <string name="action_settings">Settings</string>
     <string name="action_add_favourite">Add to Favourites</string>
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">LOVE MUSIC</string>
-    <string name="backdrop_subtitle">This is ............... </string>
+    <string name="backdrop_subtitle">Good food is Good mode </string>
     <string name="deserts">Deserts</string>
     <string name="add_to_order">Add To Order</string>
     <string name="lunch">Lunch</string>
@@ -27,6 +27,12 @@
     <string name="total_price">Total price</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_contact">Contact numberr is invalid</string>
+    <string name="delivery_report">Delivery Report</string>
+    <string name="done">Done</string>
+    <string name="thank_src">Your Order received. \n We will deliver your order \n on time to exact place \n you mentioned \n\n Thank you for being with us \n Keep in touch</string>
+    <string name="hot_line">Hot line : 076 611 611 2, 011 254 520 9</string>
+    <string name="about_us">About Us</string>
+    <string name="about_button">About button</string>
     <string-array name="quantity_array">
         <item>1</item>
         <item>2</item>

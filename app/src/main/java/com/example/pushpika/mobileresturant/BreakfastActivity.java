@@ -96,8 +96,8 @@ public class BreakfastActivity extends AppCompatActivity {
      */
     private void prepareAlbums() {
 
-        for (int i = 0; i < SplashScreenActivity.breakfastItemList.size(); i++) {
-            ItemObject a = new ItemObject(SplashScreenActivity.breakfastItemList.get(i));
+        for (int i = 0; i < DataLoadingActivity.breakfastItemList.size(); i++) {
+            ItemObject a = new ItemObject(DataLoadingActivity.breakfastItemList.get(i));
             albumList.add(a);
         }
 
