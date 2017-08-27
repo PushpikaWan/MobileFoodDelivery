@@ -1,9 +1,11 @@
 package com.example.pushpika.mobileresturant;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -104,8 +106,24 @@ public class DataLoadingActivity extends AppCompatActivity {
                         error_message++;
                         if (error_message % 10 == 0 && error_message <= 20 ){
 
+                            if(volleyError.toString().equals("com.android.volley.ServerError")){
+                               // Toast.makeText(DataLoadingActivity.this,"Please Update this application", Toast.LENGTH_LONG).show();
+                                error_message = 21;
+                                AlertDialog.Builder builder = new AlertDialog.Builder(DataLoadingActivity.this);
+                                builder.setMessage("Please Update this application")
+                                        .setCancelable(false)
+                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int id) {
+                                                finish();
+                                                System.exit(0);
+                                            }
+                                        });
+                                AlertDialog alert = builder.create();
+                                alert.show();
+                            }
                             // Showing error message if something goes wrong.
-                            // Toast.makeText(SplashScreenActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(DataLoadingActivity.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+                            //Log.d("Data loading error: ",volleyError.toString());
                             Toast.makeText(DataLoadingActivity.this, "There is an error with internet connection", Toast.LENGTH_LONG).show();
 
                         }

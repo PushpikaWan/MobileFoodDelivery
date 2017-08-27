@@ -65,7 +65,7 @@ public class ItemObjectAdapter extends RecyclerView.Adapter<ItemObjectAdapter.My
         //holder.quantity.getSelectedItem();
         if (album.getIsOrdered()){
             holder.addToOrder.setText(R.string.order_added);
-            holder.addToOrder.setTextColor(Color.parseColor("#FC7A10"));
+            holder.addToOrder.setTextColor(Color.parseColor("#88c625"));
             holder.addToOrder.setBackgroundColor(Color.parseColor("#FFFFFF"));
             holder.addToOrder.setEnabled(false);
         }
@@ -81,7 +81,7 @@ public class ItemObjectAdapter extends RecyclerView.Adapter<ItemObjectAdapter.My
                 album.setQuantity(Integer.parseInt(String.valueOf(holder.quantity.getSelectedItem())));
                 MainActivity.orderList.add(album);
                 holder.addToOrder.setText(R.string.order_added);
-                holder.addToOrder.setTextColor(Color.parseColor("#FC7A10"));
+                holder.addToOrder.setTextColor(Color.parseColor("#88c625"));
                 holder.addToOrder.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 holder.addToOrder.setEnabled(false);
             }

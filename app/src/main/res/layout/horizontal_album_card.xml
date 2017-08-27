@@ -130,7 +130,7 @@
                                     android:layout_height="@dimen/add_to_orded_button_height"
                                     android:text="@string/add_to_order"
                                     android:textSize="@dimen/album_title"
-                                    android:background="@color/colorAccent"
+                                    android:background="@color/colorPrimaryDark"
                                     android:textColor="#FFFFFF"
                                     android:id="@+id/add_to_order"
                                     android:layout_gravity="right"
